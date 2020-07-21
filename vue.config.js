@@ -1,5 +1,7 @@
 module.exports = {
   lintOnSave: false, //关闭Eslint语法检查
+
+  // 适配
   css: {
     loaderOptions: {
       postcss: {
@@ -11,6 +13,19 @@ module.exports = {
             exclude: /(node_module)/, // 排除指定的包，不对其进行转换，通常用于指定第三方包，默认为false
           }),
         ],
+      },
+    },
+  },
+
+  // 代理服务器
+  devServer: {
+    open: true, // 自动打开浏览器
+    proxy: {
+      // 配置代理
+      "/api": {
+        // 只处理以/api开头的请求
+        target: "http://localhost:6001", // 转发的目标地址
+        changeOrigin: true, // 支持跨域
       },
     },
   },

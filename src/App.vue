@@ -1,20 +1,21 @@
 <template>
-  <div id="app" class="test">
-    <h1>网易严选适配测试</h1>
+  <div id="app">
+    <!-- 显示当前匹配的路由组件 -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
   name: "App",
+
+  // 注册组件
+  components: {
+    // Footer,
+  },
 };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-/* 适配 */
-.test
-  width 750px
-  height 400px
-  font-size 3rem
-  background red
+/*每个页面公共css */
 </style>
