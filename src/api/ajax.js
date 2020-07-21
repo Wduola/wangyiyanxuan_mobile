@@ -1,10 +1,9 @@
 import axios from "axios";
-import qs from "qs";
+import store from "@/store";
 
 // 1. 生成Axios的伪实例, 能够使用Axios实例的属性，但不是Axios的实例
 const instance = axios.create({
   baseURL: "/api", // H5
-  baseUrl: "http://localhost:6001",
   timeout: 10000, // 设置超时时间
 });
 
@@ -24,5 +23,5 @@ instance.interceptors.response.use(
     return new Promise(() => {}); // 手动返回状态pending的promise实例，避免在错误情况下进入下一个成功的回调
   }
 );
-
+// 暴漏出去
 export default instance;

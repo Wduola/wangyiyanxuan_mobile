@@ -9,6 +9,10 @@
 export default {
   name: "App",
 
+  async mounted() {
+    // 通过异步action获取异步获取数据到vuex的state中
+    this.$store.dispatch("getIndexData");
+  },
   // 注册组件
   components: {
     // Footer,

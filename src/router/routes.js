@@ -1,15 +1,15 @@
 // 所有路由配置的数组
 
 // 引入组件
-import Home from "../pages/Home";
-import Category from "../pages/Category";
-import WorthToBuy from "../pages/WorthToBuy";
-import Cart from "../pages/Cart";
-import Personal from "../pages/Personal";
+import Home from "@/pages/Home";
+import Category from "@/pages/Category";
+import WorthToBuy from "@/pages/WorthToBuy";
+import Cart from "@/pages/Cart";
+import Personal from "@/pages/Personal";
 
-import Login from "../pages/Login";
-import Search from "../pages/Search";
-import Register from "../pages/Register";
+import Login from "@/pages/Login";
+import Search from "@/pages/Search";
+import Register from "@/pages/Register";
 
 export default [
   // 五个底部导航

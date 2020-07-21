@@ -5,13 +5,19 @@ import Mint from "mint-ui"; //引入mintUI库
 import "mint-ui/lib/style.css"; //进入mintUI样式
 
 import router from "./router"; //引入路由器
+import store from "./store";
+import * as API from "@/api"; // 引入所有接口请求函数并包装在API对象中
 
 Vue.config.productionTip = false; //关闭生产提示
+
+// 让所有组件对象可以直接看到API对象
+Vue.prototype.$API = API;
 
 // 使用mintUI库
 Vue.use(Mint);
 
 new Vue({
   render: (h) => h(App),
-  router, //配置路由器
+  router, // 配置路由器  所有组件对象都可以通过$router属性得到router对象
+  store, // 配置vuex的store  所有组件对象都可以通过$store属性得到store对象
 }).$mount("#app");

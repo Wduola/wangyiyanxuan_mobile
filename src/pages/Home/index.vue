@@ -3,7 +3,7 @@
     <!-- 搜索区 -->
     <header class="head">
       <img class="headImg" src="../../../public/images/logo.png" alt="网易严选logo" />
-      <div class="search">
+      <div class="search" @click="toSearch">
         <i class="iconfont icon-search"></i>
         <span class="placeholder">搜索商品, 共34087款好物</span>
       </div>
@@ -53,20 +53,47 @@
 
 <script>
 import BScroll from "better-scroll"; //横向导航组件
-import Footer from "../../components/Footer"; //固定底部导航
-
+import Footer from "@/components/Footer"; //固定底部导航
 // 引入组件
-import Recommend from "../../components/recommend/recommend"; //推荐
+import Recommend from "@/components/recommend/recommend"; //推荐
+import { mapActions, mapState } from "vuex";
 
-// import { mapActions, mapState } from "vuex";
-import request from "../../../utils/request";
 export default {
   name: "Home",
-  async mounted() {
-    // 请求主页数据
-    let result = await request("/api/getIndexData");
-    console.log(result);
+
+  // 动态数据
+  data() {
+    return {
+      keyword: "",
+    };
   },
+
+  async mounted() {
+    // 分发action请求获取indexData数据到state中
+    this.getIndexData();
+  },
+
+  // 方法
+  methods: {
+    ...mapActions({
+      getIndexData: "getIndexData",
+    }),
+
+    // 跳转搜索页面
+    toSearch() {
+      // 编程式路由跳转
+      this.$router.push("/search");
+    },
+  },
+
+  // 计算属性
+  computed: {
+    ...mapState({
+      indexData: (state) => state.home.indexData,
+    }),
+  },
+
+  // 注册组件
   components: {
     Recommend,
     Footer,
@@ -88,29 +115,34 @@ export default {
     display inline-block
     margin-right 20px
   .search
-    height: .74667rem;
+    height 56px
     width 442px
-    -webkit-flex-grow: 1;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    font-size: .37333rem;
-    background-color: #ededed;
-    border-radius: .10667rem;
+    -webkit-flex-grow: 1
+    display flex
+    flex-flow row nowrap
+    align-items center
+    justify-content center
+    font-size 12px
+    background-color #ededed
+    border-radius .10667rem
+    .placeholder
+      font-size .37333rem
+      border 0
+      line-height 56px
     .iconfont
-      display: inline-block;
-      margin-right: .13333rem;
+      font-size .47333rem
+      display inline-block
+      margin-right .13333rem
   .btn
-    width: .98667rem;
-    height: .53333rem;
-    line-height: .53333rem;
-    text-align: center;
-    color: #DD1A21;
-    border: 1px solid #DD1A21;
-    border-radius: .10667rem;
-    margin-left: .21333rem;
-    font-size: .32rem;
+    width .98667rem
+    height .53333rem
+    line-height .53333rem
+    text-align center
+    color #DD1A21
+    border 1px solid #DD1A21
+    border-radius .10667rem
+    margin-left .21333rem
+    font-size .37333rem
 
 // batter-scroll 横向滑动
 .wrapper
@@ -126,7 +158,7 @@ export default {
     overflow hidden
     list-style none
     white-space nowrap
-    font-size 12px
+    font-size .37333rem
     text-align center
     padding-right .24rem
     .item
