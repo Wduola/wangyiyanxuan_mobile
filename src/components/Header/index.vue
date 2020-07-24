@@ -2,8 +2,8 @@
   <div class="m-topBar">
     <div class="bd">
       <div class="row">
-        <a class="iconfont icon-shouye"></a>
-        <a href="/">
+        <a href="/home" class="iconfont icon-shouye"></a>
+        <a href="/home">
           <img class="logo" src="../../../public/images/logo.png" alt="网易严选logo" />
         </a>
         <div class="right">
@@ -18,6 +18,11 @@
 <script>
 export default {
   name: "Header",
+  methods: {
+    goHome() {
+      this.$router.push("/home");
+    },
+  },
 };
 </script>
 

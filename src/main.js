@@ -7,8 +7,8 @@ import "mint-ui/lib/style.css"; //进入mintUI样式
 import router from "./router"; //引入路由器
 import store from "./store";
 import * as API from "@/api"; // 引入所有接口请求函数并包装在API对象中
-import waterfall from "vue-waterfall2";
-import "./validate";
+import waterfall from "vue-waterfall2"; //瀑布流
+import "./validate"; //vee-validate表单验证
 
 Vue.config.productionTip = false; //关闭生产提示
 

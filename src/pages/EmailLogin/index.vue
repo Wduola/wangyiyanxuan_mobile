@@ -32,7 +32,7 @@ export default {
   data() {
     return {};
   },
-  comments: { Header },
+  components: { Header },
   methods: {
     goPhoneLogin() {
       this.$router.push("/phonelogin");
