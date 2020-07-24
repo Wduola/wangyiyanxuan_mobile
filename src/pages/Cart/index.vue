@@ -20,7 +20,7 @@
       <div class="container">
         <div class="img"></div>
         <div class="txt">
-          <div class="noCart-login">
+          <div class="noCart-login" @click="goLogin">
             <div class="noCart-title"></div>
             <div class="noCart-btn">登录</div>
           </div>
@@ -38,6 +38,12 @@ export default {
   name: "Cart",
   components: {
     Footer,
+  },
+  methods: {
+    // 去登录页
+    goLogin() {
+      this.$router.push("/login");
+    },
   },
 };
 </script>

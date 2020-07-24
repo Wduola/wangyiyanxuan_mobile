@@ -7,14 +7,16 @@ import "mint-ui/lib/style.css"; //进入mintUI样式
 import router from "./router"; //引入路由器
 import store from "./store";
 import * as API from "@/api"; // 引入所有接口请求函数并包装在API对象中
+import waterfall from "vue-waterfall2";
+import "./validate";
 
 Vue.config.productionTip = false; //关闭生产提示
 
 // 让所有组件对象可以直接看到API对象
 Vue.prototype.$API = API;
 
-// 使用mintUI库
-Vue.use(Mint);
+Vue.use(Mint); // 使用mintUI库
+Vue.use(waterfall); //瀑布流
 
 new Vue({
   render: (h) => h(App),

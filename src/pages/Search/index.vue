@@ -5,7 +5,7 @@
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="搜索好物" />
       </div>
-      <button @click="toHome">取消</button>
+      <button @click="toBack">取消</button>
     </div>
     <div class="m-searchSuggestionsViews">
       <div class="m-searchSuggestions">
@@ -39,9 +39,10 @@ export default {
     };
   },
   methods: {
-    toHome() {
+    // 返回上一页
+    toBack() {
       // 编程式路由跳转
-      this.$router.push("/Home");
+      this.$router.back();
     },
   },
 };

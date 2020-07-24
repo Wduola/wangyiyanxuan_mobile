@@ -8,6 +8,8 @@ import Cart from "@/pages/Cart";
 import Personal from "@/pages/Personal";
 
 import Login from "@/pages/Login";
+import PhoneLogin from "@/pages/PhoneLogin";
+import EmailLogin from "@/pages/EmailLogin";
 import Search from "@/pages/Search";
 import Register from "@/pages/Register";
 
@@ -37,6 +39,18 @@ export default [
   {
     path: "/login",
     component: Login,
+  },
+  {
+    path: "/phonelogin",
+    component: PhoneLogin,
+  },
+  {
+    path: "/emaillogin",
+    component: EmailLogin,
+  },
+  {
+    path: "/phonelogin",
+    component: PhoneLogin,
   },
   {
     path: "/register",
